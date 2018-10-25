@@ -1,5 +1,7 @@
 package com.qmm.chapter1;
 
+import sun.misc.Queue;
+
 import java.util.Iterator;
 import java.util.Stack;
 
@@ -136,6 +138,34 @@ public class practicePart3 {
         return result;
     }
 
+    /**
+     * test1.3.15
+     */
+    public static void test1315(String s , Integer k){
+        Queue<String> q  = new Queue<String>();
+        for (int i=0 ; i<s.length() ; i++){
+            q.enqueue(String.valueOf(s.charAt(i)));
+        }
+        int N  = 0;
+        String key = "";
+        while(N <= s.length() - k){
+            try {
+                key = q.dequeue();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            N++;
+        }
+        System.out.println(key);
+    }
+
+    /**
+     * test1.3.19
+     */
+    public static void test1319(){
+
+    }
+
 
     public static void main(String[] args) {
 //        System.out.println(test134("{[[](])}"));
@@ -153,6 +183,6 @@ public class practicePart3 {
 //            System.out.println(a.pop());
 //        }
 
-
+        test1315("wgtxgjklb" , 5);
     }
 }
